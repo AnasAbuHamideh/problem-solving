@@ -20,6 +20,11 @@
 
 const objLat = (obj) => {
     // write your code here
+    this.firstName=obj.firstName.charAt(0).toUpperCase()+obj.firstName.substring(1);
+    this.lastName=obj.lastName.charAt(0).toUpperCase()+obj.lastName.substring(1);
+    this.age=obj.age;
+    this.hobby=obj.hobby;
+    return `my name is ${this.firstName} ${this.lastName} I am ${this.age} YO, and I love ${this.hobby}.`
 };
 
 // 2) ---------------------
@@ -85,6 +90,15 @@ const objLat = (obj) => {
 const cvFormatter = (arr) => {
     
     // write your code here
+    let fullName=arr.firstName+arr.lastName;
+    let tech=arr.tech;
+
+    let arr1=[fullName,tech];
+    for(let i=0;i<arr.length;i++){
+    if(arr.yearsOfExperience>1){
+         
+    }
+    }
 };
 
 // 3) ---------------------
