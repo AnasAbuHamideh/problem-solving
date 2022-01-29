@@ -18,6 +18,7 @@
 const arrInc = (arr) => {
     let result = [];
     // write your code here
+    //not
     return result;
 }
 
