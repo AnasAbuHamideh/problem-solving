@@ -88,17 +88,36 @@ const objLat = (obj) => {
 
 // ------------------------
 const cvFormatter = (arr) => {
-    
-    // write your code here
-    let fullName=arr.firstName+arr.lastName;
-    let tech=arr.tech;
+    var arr1 = []
 
-    let arr1=[fullName,tech];
-    for(let i=0;i<arr.length;i++){
-    if(arr.yearsOfExperience>1){
-         
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].yearsOfExperience > 1) {
+
+            if (arr[i].firstName == null) {
+                arr1.push({
+                    fullName: `${arr[i].lastName}`,
+                    tech: arr[i].tech
+                })
+            } else if (arr[i].lastName == null) {
+                arr1.push({
+                    fullName: `${arr[i].firstName}`,
+                    tech: arr[i].tech
+                })
+            } else {
+                arr1.push({
+                    fullName: `${arr[i].firstName} ${arr[i].lastName}`,
+                    tech: arr[i].tech
+                })
+
+            }
+
+        }
+
     }
-    }
+    return arr1;
+
+
+
 };
 
 // 3) ---------------------
@@ -122,7 +141,39 @@ const cvFormatter = (arr) => {
 
 // ------------------------
 const applicationsStatics = (arr) => {
-    // write your code here
+
+    let result = {
+        python_Devs: 0,
+        javaScript_Devs: 0,
+        dotNet_Devs: 0,
+        java_Devs: 0,
+        totalApplicants: 0,
+        rejectedApplicants: 0,
+    }
+    for (let i = 0; i < arr.length; i++) {
+
+        if (arr[i].tech == "Python") {
+            result.python_Devs++;
+            result.totalApplicants++;
+        } else if (arr[i].tech == "JS") {
+            result.javaScript_Devs++;
+            result.totalApplicants++;
+
+        } else if (arr[i].tech == ".Net") {
+            result.dotNet_Devs++;
+            result.totalApplicants++;
+        } else if (arr[i].tech == "Java") {
+            result.java_Devs++;
+            result.totalApplicants++;
+        }
+        if (arr[i].yearsOfExperience <= 1) {
+
+            result.rejectedApplicants++;
+        }
+
+    }
+    return result;
+
 };
 
 // 4) ---------------------
