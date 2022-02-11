@@ -108,14 +108,11 @@ const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
   // write your code here
-  for(const [key, value] of Object.entries(arr)){
-    coursesName.push(
-    `${value}`
-  )
-  studentsName.push(
-    `${value}`
-  )
-  }
+  for (const element of arr) {
+    coursesName.push(`${element.course}`);
+    for (const name of element.Students)
+        studentsName.push(`${name}`)
+}
   return { coursesName, studentsName };
 };
 
@@ -139,6 +136,20 @@ const getInfo = (arr) => {
 
 const getStudents = (arr) => {
   // write your code here
+  let arr1 = [];
+    for (const element of arr) {
+        for (const value of courses)
+            for (const name of value.Students)
+                if (element == name) {
+                    arr1.push({
+                        Student: `${element}`,
+                        course: `${value.course}`
+                    })
+
+                }
+
+    }
+    return arr1;
 
 };
 
